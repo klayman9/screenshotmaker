@@ -69,6 +69,7 @@ public class ScreenshotMaker extends Thread {
 		Date date = new Date();
 		
 		String fileName = String.format("%s.png", dateFormat.format(date));		
+		fileName = "/" + fileName;
 		
 		ImageIO.write(getScreenImage(), "PNG", new File(filePath + fileName));
 	}

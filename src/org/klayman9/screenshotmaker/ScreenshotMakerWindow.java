@@ -22,9 +22,9 @@ public class ScreenshotMakerWindow extends JFrame {
 		
 		try {
 			screenshotMaker = ScreenshotMaker.getInstance();
-		} catch (AWTException e) {
+		} catch (AWTException exception) {
 			
-			e.printStackTrace();
+			exception.printStackTrace();
 			System.exit(0);
 		}
 		
@@ -32,21 +32,23 @@ public class ScreenshotMakerWindow extends JFrame {
 		screenButton.addActionListener(new ActionListener() {
 			
 			@Override
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(ActionEvent event) {
 				
-				System.out.println("SHOT");
 				try {
 					setVisible(false);
+					
 					screenshotMaker.makeScreenshot();
 					setVisible(true);
 					
-				} catch (IOException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
+				} catch (IOException exception) {
+					
+					exception.printStackTrace();
 				}
 			}
 		});
+		
 		add(screenButton);
+		setSize(150, 60);
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
